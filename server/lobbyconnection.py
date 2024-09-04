@@ -315,7 +315,7 @@ class LobbyConnection:
                 if game.is_visible_to_player(self.player)
             ]
         })
-    
+
     async def send_game_list_to_player(self, player: Player):
         await player.send_message({
             "command": "game_info",
@@ -344,7 +344,7 @@ class LobbyConnection:
 
         with contextlib.suppress(KeyError):
             player_attr.remove(subject_id)
-        
+
         subject_player = self.player_service.get_player(int(subject_id))
         with contextlib.suppress(DisconnectedError):
             self.send_game_list_to_player(subject_player)
